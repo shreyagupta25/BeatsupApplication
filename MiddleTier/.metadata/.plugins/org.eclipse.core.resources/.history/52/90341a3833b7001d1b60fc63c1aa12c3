@@ -1,0 +1,103 @@
+package com.example.demo.entities;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@Entity
+@Table(name="Login")
+public class Login {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int loginid;
+	
+	String email;
+	String password;
+	@ManyToOne
+	@JoinColumn(name="roleid")
+	Role roleid;
+	int queid;
+	String answer;
+	int status;
+	public Login() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Login(String email, String password, Role roleid, int queid, String answer, int status, int question_id) {
+		super();
+		this.email = email;
+		this.password = password;
+		this.roleid = roleid;
+		this.queid = queid;
+		this.answer = answer;
+		this.status = status;
+		this.question_id = question_id;
+	}
+	public int getLoginid() {
+		return loginid;
+	}
+	public void setLoginid(int loginid) {
+		this.loginid = loginid;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public Role getRoleid() {
+		return roleid;
+	}
+	public void setRoleid(Role roleid) {
+		this.roleid = roleid;
+	}
+	public int getQueid() {
+		return queid;
+	}
+	public void setQueid(int queid) {
+		this.queid = queid;
+	}
+	public String getAnswer() {
+		return answer;
+	}
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	public int getQuestion_id() {
+		return question_id;
+	}
+	public void setQuestion_id(int question_id) {
+		this.question_id = question_id;
+	}
+	
+	
+	
+}
